@@ -8,8 +8,17 @@ were proposed by a multi-objective Bayesian optimizer (ARD Matérn-5/2 GP + qEHV
 trained on everything measured before them, maximizing thrust while minimizing
 current draw.
 
-Every nozzle exists in two materials — **rigid** and **flexible** — and each was
-measured on a dynamometer in a water tank.
+Nozzles come in two materials, **rigid** and **flexible**. In Generation 1 each
+shape was printed in both, so the same geometry appears twice. From Generation 2
+on, rigid and flexible are optimized separately — each nozzle is one material
+only, with its own geometry. All were measured on a dynamometer in a water tank.
+
+![Nozzle performance map](performance_map.png)
+
+Every measured nozzle, with error bars over the three thrust pulses. Both axes
+are ratios against the bare propeller, which sits at (1, 1). **Up and to the
+right is better** — the power axis is reversed so that less power draw points
+right. Bold labels are the representative shapes.
 
 ---
 
@@ -143,6 +152,7 @@ newtons would not** — which is why raw values are not published here. The
 | [`geometry_parameters.csv`](geometry_parameters.csv) | 7 shape parameters per nozzle, same 32 rows, same `Index` |
 | [`STL/`](STL) | 23 printable geometries |
 | [`previews/`](previews) | Renders of the representative shapes |
+| [`performance_map.png`](performance_map.png) | The plot at the top of this page |
 
 ### Columns
 
@@ -175,9 +185,11 @@ All nozzles share a fixed mounting interface: 85 mm inner bore, 110 mm flange,
 
 ## Notes
 
-- **Rigid and flexible are the same printed shape in different material.** For
-  Generation 1 this means `G1R3` and `G1F3` carry identical geometry and point at
-  the same STL; they differ only in what they were printed from.
+- **Only Generation 1 shares geometry between materials.** `G1R3` and `G1F3` are
+  the same printed shape in different material, so they carry identical parameter
+  rows and point at the same STL. Generation 2 and 3 nozzles are each a single
+  material with geometry of their own — `G2F1` and `G2R1` are unrelated shapes.
+  The optimizer runs one GP per material, trained only on that material's data.
 - **`Cylinder`** is a plain reference tube, not an optimizer output, and has no
   STL. In flexible material it out-thrusts every shaped Generation 1 nozzle
   (T\* = 1.127) — worth knowing before reading too much into the early sweep.
