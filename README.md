@@ -153,6 +153,7 @@ newtons would not** — which is why raw values are not published here. The
 | [`STL/`](STL) | 23 printable geometries |
 | [`previews/`](previews) | Renders of the representative shapes |
 | [`performance_map.png`](performance_map.png) | The plot at the top of this page |
+| [`make_plot.py`](make_plot.py) | Script that regenerates the plot from the CSV |
 
 ### Columns
 
