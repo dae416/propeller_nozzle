@@ -35,8 +35,8 @@ points right. Every measured nozzle is in the results table below.
 
 | Index | Role | Generation | Material | T\* (thrust) | I\* = P\* (power) | STL |
 |---|---|---|---|---|---|---|
-| **`G2F2`** | Flexible best 1 | 2 | Flexible | **1.077** ± 0.043 | 1.034 ± 0.021 | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
-| **`G3F1`** | Flexible best 2 | 3 | Flexible | **1.015** ± 0.037 | 1.040 ± 0.020 | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
+| **`G2F2`** | Flexible best 1 | 2 | Flexible | **1.105** ± 0.044 | 1.014 ± 0.020 | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
+| **`G3F1`** | Flexible best 2 | 3 | Flexible | **1.017** ± 0.038 | 0.989 ± 0.019 | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
 | **`G3R2`** | Rigid best | 3 | Rigid | **0.977** ± 0.034 | 0.958 ± 0.029 | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
 | **`G1F3`** | Flexible worst | 1 | Flexible | **0.588** ± 0.035 | 1.184 ± 0.035 | [`G1S3.stl`](STL/G1S3.stl) |
 
@@ -68,7 +68,8 @@ the same normalized units.
 by up to 20% — two Gen2 Rigid sessions measured the bare propeller at 26.9 N and
 32.2 N. Yet the nozzle-to-baseline ratios in those two sessions were 0.865 and
 0.853: the drift is in the rig, not in the nozzles. Dividing it out is what makes
-generations comparable.
+generations comparable. Which no-nozzle run backs each session was chosen per
+session by the experimenter, from the recorded data.
 
 The consequence is that **T\* and I\* compare across the whole table, but raw
 newtons would not** — which is why raw values are not published here. The
@@ -110,10 +111,10 @@ newtons would not** — which is why raw values are not published here. The
 
 | Index | T\* | I\* = P\* | Session | STL |
 |---|---|---|---|---|
-| `G2F2` ⭐ | 1.077 ± 0.043 | 1.034 ± 0.021 | G2F | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
-| `G2F1` | 1.001 ± 0.033 | 1.049 ± 0.011 | G2F | [`G2_F_S1.stl`](STL/G2_F_S1.stl) |
-| `G2F3` | 0.997 ± 0.004 | 1.020 ± 0.053 | G2F | [`G2_F_S3.stl`](STL/G2_F_S3.stl) |
-| `G2F4` | 0.848 ± 0.036 | 1.060 ± 0.034 | G2F | [`G2_F_S4.stl`](STL/G2_F_S4.stl) |
+| `G2F2` ⭐ | 1.105 ± 0.044 | 1.014 ± 0.020 | G2F | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
+| `G2F1` | 1.028 ± 0.034 | 1.028 ± 0.011 | G2F | [`G2_F_S1.stl`](STL/G2_F_S1.stl) |
+| `G2F3` | 1.023 ± 0.004 | 1.000 ± 0.052 | G2F | [`G2_F_S3.stl`](STL/G2_F_S3.stl) |
+| `G2F4` | 0.870 ± 0.037 | 1.038 ± 0.033 | G2F | [`G2_F_S4.stl`](STL/G2_F_S4.stl) |
 
 **Gen2 Rigid**
 
@@ -128,10 +129,10 @@ newtons would not** — which is why raw values are not published here. The
 
 | Index | T\* | I\* = P\* | Session | STL |
 |---|---|---|---|---|
-| `G3F1` ⭐ | 1.015 ± 0.037 | 1.040 ± 0.020 | G3F | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
-| `G3F2` | 0.931 ± 0.018 | 1.015 ± 0.043 | G3F | [`G3_F_S2.stl`](STL/G3_F_S2.stl) |
-| `G3F4` | 0.929 ± 0.023 | 1.073 ± 0.011 | G3F | [`G3_F_S4.stl`](STL/G3_F_S4.stl) |
-| `G3F3` | 0.835 ± 0.031 | 1.101 ± 0.043 | G3F | [`G3_F_S3.stl`](STL/G3_F_S3.stl) |
+| `G3F1` ⭐ | 1.017 ± 0.038 | 0.989 ± 0.019 | G3F | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
+| `G3F2` | 0.933 ± 0.018 | 0.965 ± 0.041 | G3F | [`G3_F_S2.stl`](STL/G3_F_S2.stl) |
+| `G3F4` | 0.931 ± 0.023 | 1.020 ± 0.010 | G3F | [`G3_F_S4.stl`](STL/G3_F_S4.stl) |
+| `G3F3` | 0.837 ± 0.031 | 1.046 ± 0.041 | G3F | [`G3_F_S3.stl`](STL/G3_F_S3.stl) |
 
 **Gen3 Rigid**
 
