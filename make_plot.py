@@ -17,10 +17,12 @@ STYLE = {                       # (generation, type) -> color, marker
     (1, "F"): ("#ff8080", "o"), (1, "R"): ("#9a9a9a", "s"),
     (2, "F"): ("#8c0d0d", "o"), (2, "R"): ("#262626", "s"),
     (3, "F"): ("#5a005a", "o"), (3, "R"): ("#00264d", "s"),
+    (4, "F"): ("#0b6b6b", "o"),
 }
 LABEL = {(1, "F"): "Gen1 flexible", (1, "R"): "Gen1 rigid",
          (2, "F"): "Gen2 flexible", (2, "R"): "Gen2 rigid",
-         (3, "F"): "Gen3 flexible", (3, "R"): "Gen3 rigid"}
+         (3, "F"): "Gen3 flexible", (3, "R"): "Gen3 rigid",
+         (4, "F"): "Gen4 flexible"}
 
 fig, ax = plt.subplots(figsize=(9, 7), dpi=160)
 ax.set_facecolor("white")
@@ -45,7 +47,7 @@ ax.grid(True, color="0.9", linewidth=0.6)
 ax.set_axisbelow(True)
 ax.legend(loc="upper left", fontsize=9, framealpha=1)
 
-OFF = {"G2F3": (-10, -32)}                        # keeps it clear of G3F1
+OFF = {}
 for r in rows:
     ax.annotate(f"{r['Index']}\n{r['Representative']}", (float(r["P_star"]), float(r["T_star"])),
                 xytext=OFF.get(r["Index"], (-6, 9)), textcoords="offset points", fontsize=9, fontweight="bold",

@@ -1,9 +1,9 @@
 # Squid-Inspired Jet Nozzle Dataset
 
-Thrust and power measurements for **32 propeller-driven jet nozzles** across three
+Thrust and power measurements for **36 propeller-driven jet nozzles** across four
 design generations, together with the printable geometry of each one.
 
-Generation 1 is a Latin-hypercube sweep of the design space. Generations 2 and 3
+Generation 1 is a Latin-hypercube sweep of the design space. Generations 2, 3 and 4
 were proposed by a multi-objective Bayesian optimizer (ARD Matérn-5/2 GP + qEHVI)
 trained on everything measured before them, maximizing thrust while minimizing
 current draw.
@@ -26,7 +26,7 @@ points right. Every measured nozzle is in the results table below.
 
 <table>
 <tr>
-<td width="25%" align="center"><img src="previews/G2F3.png" width="200"><br><b>G2F3</b><br>Flexible best 1</td>
+<td width="25%" align="center"><img src="previews/G2F2.png" width="200"><br><b>G2F2</b><br>Flexible best 1</td>
 <td width="25%" align="center"><img src="previews/G3F1.png" width="200"><br><b>G3F1</b><br>Flexible best 2</td>
 <td width="25%" align="center"><img src="previews/G3R2.png" width="200"><br><b>G3R2</b><br>Rigid best</td>
 <td width="25%" align="center"><img src="previews/G1F3.png" width="200"><br><b>G1F3</b><br>Flexible worst</td>
@@ -35,16 +35,16 @@ points right. Every measured nozzle is in the results table below.
 
 | Index | Role | Generation | Material | T\* (thrust) | I\* = P\* (power) | STL |
 |---|---|---|---|---|---|---|
-| **`G2F3`** | Flexible best 1 | 2 | Flexible | **0.997** ± 0.004 | 1.020 ± 0.053 | [`G2_F_S3.stl`](STL/G2_F_S3.stl) |
+| **`G2F2`** | Flexible best 1 | 2 | Flexible | **1.077** ± 0.043 | 1.034 ± 0.021 | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
 | **`G3F1`** | Flexible best 2 | 3 | Flexible | **1.015** ± 0.037 | 1.040 ± 0.020 | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
-| **`G3R2`** | Rigid best | 3 | Rigid | **0.977** ± 0.034 | **0.959** ± 0.029 | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
-| **`G1F3`** | Flexible worst | 1 | Flexible | 0.589 ± 0.035 | 1.184 ± 0.035 | [`G1S3.stl`](STL/G1S3.stl) |
+| **`G3R2`** | Rigid best | 3 | Rigid | **0.977** ± 0.034 | 0.958 ± 0.029 | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
+| **`G1F3`** | Flexible worst | 1 | Flexible | **0.588** ± 0.035 | 1.184 ± 0.035 | [`G1S3.stl`](STL/G1S3.stl) |
 
 Their shape parameters:
 
 | Index | bulge | neck | tip_expansion | R_tip (mm) | t_bottom (mm) | t_top (mm) | L (mm) |
 |---|---|---|---|---|---|---|---|
-| `G2F3` | 0.9707 | 0.8108 | 1 | 52.9585 | 1.3265 | 1.7038 | 106.7499 |
+| `G2F2` | 0.9743 | 0.936 | 0.9288 | 50.2222 | 0.9466 | 1.1814 | 139.7882 |
 | `G3F1` | 1.1 | 1 | 0.9167 | 46.4392 | 2 | 2 | 42.5 |
 | `G3R2` | 0.8463 | 0.9246 | 0.8258 | 55.25 | 0.7 | 2 | 42.5 |
 | `G1F3` | 0.8455 | 0.9322 | 0.8378 | 33.9944 | 1.5733 | 1.8579 | 145.2361 |
@@ -84,13 +84,13 @@ newtons would not** — which is why raw values are not published here. The
 
 | Index | T\* | I\* = P\* | Session | STL |
 |---|---|---|---|---|
-| `G1FCylinder` | 1.127 ± 0.037 | 1.061 ± 0.068 | G1 | — |
+| `G1FCylinder` | 1.128 ± 0.037 | 1.061 ± 0.068 | G1 | — |
 | `G1F6` | 0.943 ± 0.015 | 1.011 ± 0.087 | G1 | [`G1S6.stl`](STL/G1S6.stl) |
 | `G1F2` | 0.928 ± 0.034 | 1.067 ± 0.052 | G1 | [`G1S2.stl`](STL/G1S2.stl) |
-| `G1F1` | 0.916 ± 0.089 | 1.159 ± 0.153 | G1 | [`G1S1.stl`](STL/G1S1.stl) |
+| `G1F1` | 0.917 ± 0.089 | 1.159 ± 0.153 | G1 | [`G1S1.stl`](STL/G1S1.stl) |
 | `G1F8` | 0.884 ± 0.041 | 0.998 ± 0.041 | G1 | [`G1S8.stl`](STL/G1S8.stl) |
 | `G1F5` | 0.866 ± 0.022 | 0.984 ± 0.030 | G1 | [`G1S5.stl`](STL/G1S5.stl) |
-| `G1F3` ⭐ | 0.589 ± 0.035 | 1.184 ± 0.035 | G1 | [`G1S3.stl`](STL/G1S3.stl) |
+| `G1F3` ⭐ | 0.588 ± 0.035 | 1.184 ± 0.035 | G1 | [`G1S3.stl`](STL/G1S3.stl) |
 | `G1F4` | 0.540 ± 0.011 | 1.110 ± 0.052 | G1 | [`G1S4.stl`](STL/G1S4.stl) |
 
 **Gen1 Rigid**
@@ -98,21 +98,21 @@ newtons would not** — which is why raw values are not published here. The
 | Index | T\* | I\* = P\* | Session | STL |
 |---|---|---|---|---|
 | `G1RCylinder` | 0.950 ± 0.018 | 1.044 ± 0.047 | G1 | — |
-| `G1R2` | 0.948 ± 0.029 | 1.024 ± 0.040 | G1 | [`G1S2.stl`](STL/G1S2.stl) |
+| `G1R2` | 0.948 ± 0.030 | 1.024 ± 0.040 | G1 | [`G1S2.stl`](STL/G1S2.stl) |
 | `G1R5` | 0.914 ± 0.027 | 1.013 ± 0.051 | G1 | [`G1S5.stl`](STL/G1S5.stl) |
 | `G1R8` | 0.892 ± 0.022 | 1.040 ± 0.047 | G1 | [`G1S8.stl`](STL/G1S8.stl) |
 | `G1R6` | 0.867 ± 0.035 | 0.954 ± 0.046 | G1 | [`G1S6.stl`](STL/G1S6.stl) |
 | `G1R1` | 0.847 ± 0.050 | 1.052 ± 0.072 | G1 | [`G1S1.stl`](STL/G1S1.stl) |
 | `G1R4` | 0.463 ± 0.015 | 1.115 ± 0.017 | G1 | [`G1S4.stl`](STL/G1S4.stl) |
-| `G1R3` | 0.265 ± 0.009 | 1.219 ± 0.057 | G1 | [`G1S3.stl`](STL/G1S3.stl) |
+| `G1R3` | 0.265 ± 0.008 | 1.219 ± 0.057 | G1 | [`G1S3.stl`](STL/G1S3.stl) |
 
 **Gen2 Flexible**
 
 | Index | T\* | I\* = P\* | Session | STL |
 |---|---|---|---|---|
-| `G2F2` | 1.077 ± 0.043 | 1.034 ± 0.021 | G2F | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
-| `G2F1` | 1.001 ± 0.034 | 1.048 ± 0.011 | G2F | [`G2_F_S1.stl`](STL/G2_F_S1.stl) |
-| `G2F3` ⭐ | 0.997 ± 0.004 | 1.020 ± 0.053 | G2F | [`G2_F_S3.stl`](STL/G2_F_S3.stl) |
+| `G2F2` ⭐ | 1.077 ± 0.043 | 1.034 ± 0.021 | G2F | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
+| `G2F1` | 1.001 ± 0.033 | 1.049 ± 0.011 | G2F | [`G2_F_S1.stl`](STL/G2_F_S1.stl) |
+| `G2F3` | 0.997 ± 0.004 | 1.020 ± 0.053 | G2F | [`G2_F_S3.stl`](STL/G2_F_S3.stl) |
 | `G2F4` | 0.848 ± 0.036 | 1.060 ± 0.034 | G2F | [`G2_F_S4.stl`](STL/G2_F_S4.stl) |
 
 **Gen2 Rigid**
@@ -129,7 +129,7 @@ newtons would not** — which is why raw values are not published here. The
 | Index | T\* | I\* = P\* | Session | STL |
 |---|---|---|---|---|
 | `G3F1` ⭐ | 1.015 ± 0.037 | 1.040 ± 0.020 | G3F | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
-| `G3F2` | 0.931 ± 0.018 | 1.016 ± 0.043 | G3F | [`G3_F_S2.stl`](STL/G3_F_S2.stl) |
+| `G3F2` | 0.931 ± 0.018 | 1.015 ± 0.043 | G3F | [`G3_F_S2.stl`](STL/G3_F_S2.stl) |
 | `G3F4` | 0.929 ± 0.023 | 1.073 ± 0.011 | G3F | [`G3_F_S4.stl`](STL/G3_F_S4.stl) |
 | `G3F3` | 0.835 ± 0.031 | 1.101 ± 0.043 | G3F | [`G3_F_S3.stl`](STL/G3_F_S3.stl) |
 
@@ -137,10 +137,19 @@ newtons would not** — which is why raw values are not published here. The
 
 | Index | T\* | I\* = P\* | Session | STL |
 |---|---|---|---|---|
-| `G3R2` ⭐ | 0.977 ± 0.034 | 0.959 ± 0.029 | G3R | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
-| `G3R1` | 0.911 ± 0.029 | 0.965 ± 0.021 | G3R | [`G3_R_S1.stl`](STL/G3_R_S1.stl) |
+| `G3R2` ⭐ | 0.977 ± 0.034 | 0.958 ± 0.029 | G3R | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
+| `G3R1` | 0.911 ± 0.029 | 0.965 ± 0.022 | G3R | [`G3_R_S1.stl`](STL/G3_R_S1.stl) |
 | `G3R3` | 0.898 ± 0.036 | 0.948 ± 0.022 | G3R | [`G3_R_S3.stl`](STL/G3_R_S3.stl) |
-| `G3R4` | 0.887 ± 0.014 | 0.938 ± 0.015 | G3R | [`G3_R_S4.stl`](STL/G3_R_S4.stl) |
+| `G3R4` | 0.888 ± 0.014 | 0.938 ± 0.015 | G3R | [`G3_R_S4.stl`](STL/G3_R_S4.stl) |
+
+**Gen4 Flexible**
+
+| Index | T\* | I\* = P\* | Session | STL |
+|---|---|---|---|---|
+| `G4F1` | 0.968 ± 0.028 | 1.069 ± 0.008 | G4F | [`G4_F_S1.stl`](STL/G4_F_S1.stl) |
+| `G4F2` | 0.933 ± 0.023 | 1.019 ± 0.045 | G4F | [`G4_F_S2.stl`](STL/G4_F_S2.stl) |
+| `G4F4` | 0.850 ± 0.020 | 1.152 ± 0.070 | G4F | [`G4_F_S4.stl`](STL/G4_F_S4.stl) |
+| `G4F3` | 0.812 ± 0.042 | 1.096 ± 0.014 | G4F | [`G4_F_S3.stl`](STL/G4_F_S3.stl) |
 
 ---
 
@@ -148,9 +157,9 @@ newtons would not** — which is why raw values are not published here. The
 
 | File | Content |
 |---|---|
-| [`nozzle_performance.csv`](nozzle_performance.csv) | 32 rows — the table above, machine-readable |
-| [`geometry_parameters.csv`](geometry_parameters.csv) | 7 shape parameters per nozzle, same 32 rows, same `Index` |
-| [`STL/`](STL) | 23 printable geometries |
+| [`nozzle_performance.csv`](nozzle_performance.csv) | 36 rows — the table above, machine-readable |
+| [`geometry_parameters.csv`](geometry_parameters.csv) | 7 shape parameters per nozzle, same 36 rows, same `Index` |
+| [`STL/`](STL) | 27 printable geometries |
 | [`previews/`](previews) | Renders of the representative shapes |
 | [`performance_map.png`](performance_map.png) | The plot at the top of this page |
 | [`make_plot.py`](make_plot.py) | Script that regenerates the plot from the CSV |
@@ -160,7 +169,7 @@ newtons would not** — which is why raw values are not published here. The
 | Column | Meaning |
 |---|---|
 | `Index` | `G<generation><material><shape>` — e.g. `G1F3` is Generation 1, Flexible, shape 3. Joins the two CSVs 1:1 |
-| `Generation` | 1–3 |
+| `Generation` | 1–4 |
 | `Type` | `R` rigid, `F` flexible |
 | `Session` | Which no-nozzle run this row was normalized against; rows sharing a session are the most directly comparable |
 | `T_star`, `I_star`, `P_star` | Normalized thrust, current, power (see above) |
@@ -188,7 +197,7 @@ All nozzles share a fixed mounting interface: 85 mm inner bore, 110 mm flange,
 
 - **Only Generation 1 shares geometry between materials.** `G1R3` and `G1F3` are
   the same printed shape in different material, so they carry identical parameter
-  rows and point at the same STL. Generation 2 and 3 nozzles are each a single
+  rows and point at the same STL. Generation 2 and later nozzles are each a single
   material with geometry of their own — `G2F1` and `G2R1` are unrelated shapes.
   The optimizer runs one GP per material, trained only on that material's data.
 - **`Cylinder`** is a plain reference tube, not an optimizer output, and has no
@@ -196,9 +205,11 @@ All nozzles share a fixed mounting interface: 85 mm inner bore, 110 mm flange,
   (T\* = 1.127) — worth knowing before reading too much into the early sweep.
 - **Shape 7** of the Generation 1 sweep was never tested, so the indices skip
   from 6 to 8.
-- **Generation 3 Rigid** numbers come from a 2026-05-06 processing run whose raw
-  dynamometer files are no longer in the source project, so they cannot currently
-  be recomputed from scratch.
+- **The flexible line reaches Generation 4, the rigid line stops at Generation 3.**
+  Each material is optimized independently, so the two do not advance in step.
+- **Generation 3 Rigid and Generation 4 Flexible** numbers come from earlier
+  processing runs whose raw dynamometer files are no longer in the source
+  projects, so those two groups cannot currently be recomputed from scratch.
 
 ## License
 
