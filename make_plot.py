@@ -10,7 +10,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 S = sys.argv[1]
-rows = list(csv.DictReader(open(f"{S}/nozzle_performance.csv")))
+rows = [r for r in csv.DictReader(open(f"{S}/nozzle_performance.csv"))
+        if r["Representative"]]        # representative shapes only
 
 STYLE = {                       # (generation, type) -> color, marker
     (1, "F"): ("#ff8080", "o"), (1, "R"): ("#9a9a9a", "s"),
@@ -26,6 +27,8 @@ ax.set_facecolor("white")
 
 for key, (color, marker) in STYLE.items():
     grp = [r for r in rows if (int(r["Generation"]), r["Type"]) == key]
+    if not grp:                                   # empty group -> no legend entry
+        continue
     ax.errorbar([float(r["P_star"]) for r in grp], [float(r["T_star"]) for r in grp],
                 xerr=[float(r["P_star_std"]) for r in grp],
                 yerr=[float(r["T_star_std"]) for r in grp],
@@ -42,30 +45,12 @@ ax.grid(True, color="0.9", linewidth=0.6)
 ax.set_axisbelow(True)
 ax.legend(loc="upper left", fontsize=9, framealpha=1)
 
-# Index labels: greedy placement — try offsets around the point, keep the first
-# that clears every label already placed. The cluster near T*~0.9 is dense enough
-# that fixed offsets become unreadable.
-OFFSETS = [(-5, 6), (-5, -13), (7, -3), (-30, -3), (7, 8), (-32, 8), (7, -13), (-32, -13)]
-fig.canvas.draw()
-renderer = fig.canvas.get_renderer()
-placed = []
-for r in sorted(rows, key=lambda r: -float(r["T_star"])):
-    x, y = float(r["P_star"]), float(r["T_star"])
-    ann = ax.annotate(r["Index"], (x, y), xytext=OFFSETS[0], textcoords="offset points",
-                      fontsize=7, color="#333333",
-                      fontweight="bold" if r["Representative"] else "normal")
-    best, best_hits = OFFSETS[0], None
-    for off in OFFSETS:
-        ann.set_position(off)
-        bb = ann.get_window_extent(renderer).expanded(1.05, 1.05)
-        hits = sum(bb.overlaps(p) for p in placed)
-        if hits == 0:
-            best, best_hits = off, 0
-            break
-        if best_hits is None or hits < best_hits:
-            best, best_hits = off, hits
-    ann.set_position(best)
-    placed.append(ann.get_window_extent(renderer).expanded(1.05, 1.05))
+OFF = {"G2F3": (-10, -32)}                        # keeps it clear of G3F1
+for r in rows:
+    ax.annotate(f"{r['Index']}\n{r['Representative']}", (float(r["P_star"]), float(r["T_star"])),
+                xytext=OFF.get(r["Index"], (-6, 9)), textcoords="offset points", fontsize=9, fontweight="bold",
+                color="#333333")
+
 fig.tight_layout()
 fig.savefig(f"{S}/performance_map.png", facecolor="white")
 print("saved", f"{S}/performance_map.png")
