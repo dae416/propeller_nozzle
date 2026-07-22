@@ -1,7 +1,8 @@
 # Squid-Inspired Jet Nozzle Dataset
 
-Thrust and power measurements for **32 propeller-driven jet nozzles** across three
-design generations, together with the printable geometry of each one.
+Thrust and power measurements for **24 propeller-driven jet nozzle designs**
+across three generations — **32 measurements**, because every Generation 1 shape
+was tested in both rigid and flexible material. Printable geometry included.
 
 Generation 1 is a Latin-hypercube sweep of the design space. Generations 2 and 3
 were proposed by a multi-objective Bayesian optimizer (ARD Matérn-5/2 GP + qEHVI)
