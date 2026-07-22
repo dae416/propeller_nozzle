@@ -15,10 +15,11 @@ only, with its own geometry. All were measured on a dynamometer in a water tank.
 
 ![Nozzle performance map](performance_map.png)
 
-The four representative shapes, with error bars over the three thrust pulses.
-Both axes are ratios against the bare propeller, which sits at (1, 1). **Up and
-to the right is better** — the power axis is reversed so that less power draw
-points right. Every measured nozzle is in the results table below.
+The four representative shapes, with error bars over the three thrust pulses;
+every other measured nozzle is behind them in faded form. Both axes are ratios
+against the bare propeller, which sits at (1, 1). **Up and to the right is
+better** — the power axis is reversed so that less power draw points right.
+Indices for the faded points are in the results table below.
 
 ---
 

@@ -10,8 +10,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 S = sys.argv[1]
-rows = [r for r in csv.DictReader(open(f"{S}/nozzle_performance.csv"))
-        if r["Representative"]]        # representative shapes only
+allrows = list(csv.DictReader(open(f"{S}/nozzle_performance.csv")))
+rows = [r for r in allrows if r["Representative"]]   # labelled in full; rest are context
 
 STYLE = {                       # (generation, type) -> color, marker
     (1, "F"): ("#ff8080", "o"), (1, "R"): ("#9a9a9a", "s"),
@@ -27,15 +27,25 @@ LABEL = {(1, "F"): "Gen1 flexible", (1, "R"): "Gen1 rigid",
 fig, ax = plt.subplots(figsize=(9, 7), dpi=160)
 ax.set_facecolor("white")
 
+# every other nozzle: faded, no error bars, no label — context only
+for key, (color, marker) in STYLE.items():
+    rest = [r for r in allrows if (int(r["Generation"]), r["Type"]) == key and not r["Representative"]]
+    if rest:
+        ax.plot([float(r["P_star"]) for r in rest], [float(r["T_star"]) for r in rest],
+                marker, color=color, markersize=6, linestyle="none", alpha=0.25, zorder=1)
+
 for key, (color, marker) in STYLE.items():
     grp = [r for r in rows if (int(r["Generation"]), r["Type"]) == key]
-    if not grp:                                   # empty group -> no legend entry
+    if not grp:                                   # legend entry only, no points
+        if any((int(r["Generation"]), r["Type"]) == key for r in allrows):
+            ax.plot([], [], marker, color=color, markersize=6, alpha=0.4, linestyle="none",
+                    label=LABEL[key])
         continue
     ax.errorbar([float(r["P_star"]) for r in grp], [float(r["T_star"]) for r in grp],
                 xerr=[float(r["P_star_std"]) for r in grp],
                 yerr=[float(r["T_star_std"]) for r in grp],
                 fmt=marker, color=color, markersize=7, linestyle="none",
-                elinewidth=0.8, capsize=2, alpha=0.9, label=LABEL[key])
+                elinewidth=0.8, capsize=2, alpha=0.95, zorder=3, label=LABEL[key])
 
 ax.axvline(1.0, color="0.6", linestyle="--", linewidth=0.8, zorder=0)
 ax.axhline(1.0, color="0.6", linestyle="--", linewidth=0.8, zorder=0)
@@ -45,7 +55,10 @@ ax.set_ylabel("T* = thrust / no-nozzle thrust   (increasing $\\rightarrow$ bette
 ax.set_title("Nozzle performance map — no-nozzle rig = (1, 1)", fontweight="bold")
 ax.grid(True, color="0.9", linewidth=0.6)
 ax.set_axisbelow(True)
-ax.legend(loc="upper left", fontsize=9, framealpha=1)
+h, l = ax.get_legend_handles_labels()          # keep the legend in generation order
+order = sorted(range(len(l)), key=lambda i: list(LABEL.values()).index(l[i]))
+ax.legend([h[i] for i in order], [l[i] for i in order],
+          loc="upper left", fontsize=9, framealpha=1)
 
 OFF = {}
 for r in rows:
