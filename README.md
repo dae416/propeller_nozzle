@@ -1,9 +1,9 @@
 # Squid-Inspired Jet Nozzle Dataset
 
-Thrust and power measurements for **36 propeller-driven jet nozzles** across four
+Thrust and power measurements for **32 propeller-driven jet nozzles** across three
 design generations, together with the printable geometry of each one.
 
-Generation 1 is a Latin-hypercube sweep of the design space. Generations 2, 3 and 4
+Generation 1 is a Latin-hypercube sweep of the design space. Generations 2 and 3
 were proposed by a multi-objective Bayesian optimizer (ARD Matérn-5/2 GP + qEHVI)
 trained on everything measured before them, maximizing thrust while minimizing
 current draw.
@@ -144,24 +144,15 @@ newtons would not** — which is why raw values are not published here. The
 | `G3R3` | 0.898 ± 0.036 | 0.948 ± 0.022 | G3R | [`G3_R_S3.stl`](STL/G3_R_S3.stl) |
 | `G3R4` | 0.888 ± 0.014 | 0.938 ± 0.015 | G3R | [`G3_R_S4.stl`](STL/G3_R_S4.stl) |
 
-**Gen4 Flexible**
-
-| Index | T\* | I\* = P\* | Session | STL |
-|---|---|---|---|---|
-| `G4F1` | 0.968 ± 0.028 | 1.069 ± 0.008 | G4F | [`G4_F_S1.stl`](STL/G4_F_S1.stl) |
-| `G4F2` | 0.933 ± 0.023 | 1.019 ± 0.045 | G4F | [`G4_F_S2.stl`](STL/G4_F_S2.stl) |
-| `G4F4` | 0.850 ± 0.020 | 1.152 ± 0.070 | G4F | [`G4_F_S4.stl`](STL/G4_F_S4.stl) |
-| `G4F3` | 0.812 ± 0.042 | 1.096 ± 0.014 | G4F | [`G4_F_S3.stl`](STL/G4_F_S3.stl) |
-
 ---
 
 ## Files
 
 | File | Content |
 |---|---|
-| [`nozzle_performance.csv`](nozzle_performance.csv) | 36 rows — the table above, machine-readable |
-| [`geometry_parameters.csv`](geometry_parameters.csv) | 7 shape parameters per nozzle, same 36 rows, same `Index` |
-| [`STL/`](STL) | 27 printable geometries |
+| [`nozzle_performance.csv`](nozzle_performance.csv) | 32 rows — the table above, machine-readable |
+| [`geometry_parameters.csv`](geometry_parameters.csv) | 7 shape parameters per nozzle, same 32 rows, same `Index` |
+| [`STL/`](STL) | 23 printable geometries |
 | [`previews/`](previews) | Renders of the representative shapes |
 | [`performance_map.png`](performance_map.png) | The plot at the top of this page |
 | [`make_plot.py`](make_plot.py) | Script that regenerates the plot from the CSV |
@@ -171,7 +162,7 @@ newtons would not** — which is why raw values are not published here. The
 | Column | Meaning |
 |---|---|
 | `Index` | `G<generation><material><shape>` — e.g. `G1F3` is Generation 1, Flexible, shape 3. Joins the two CSVs 1:1 |
-| `Generation` | 1–4 |
+| `Generation` | 1–3 |
 | `Type` | `R` rigid, `F` flexible |
 | `Session` | Which no-nozzle run this row was normalized against; rows sharing a session are the most directly comparable |
 | `T_star`, `I_star`, `P_star` | Normalized thrust, current, power (see above) |
@@ -199,7 +190,7 @@ All nozzles share a fixed mounting interface: 85 mm inner bore, 110 mm flange,
 
 - **Only Generation 1 shares geometry between materials.** `G1R3` and `G1F3` are
   the same printed shape in different material, so they carry identical parameter
-  rows and point at the same STL. Generation 2 and later nozzles are each a single
+  rows and point at the same STL. Generation 2 and 3 nozzles are each a single
   material with geometry of their own — `G2F1` and `G2R1` are unrelated shapes.
   The optimizer runs one GP per material, trained only on that material's data.
 - **`Cylinder`** is a plain reference tube, not an optimizer output, and has no
@@ -207,11 +198,12 @@ All nozzles share a fixed mounting interface: 85 mm inner bore, 110 mm flange,
   (T\* = 1.127) — worth knowing before reading too much into the early sweep.
 - **Shape 7** of the Generation 1 sweep was never tested, so the indices skip
   from 6 to 8.
-- **The flexible line reaches Generation 4, the rigid line stops at Generation 3.**
-  Each material is optimized independently, so the two do not advance in step.
-- **Generation 3 Rigid and Generation 4 Flexible** numbers come from earlier
-  processing runs whose raw dynamometer files are no longer in the source
-  projects, so those two groups cannot currently be recomputed from scratch.
+- **32 rows are 32 physical nozzles but only 24 distinct geometries.** Each
+  Generation 1 shape was printed in both materials, so its 8 shapes account for
+  16 rows. Generation 2 and 3 contribute 8 rows and 8 geometries each.
+- **Generation 3 Rigid** numbers come from a 2026-05-06 processing run whose raw
+  dynamometer files are no longer in the source project, so they cannot currently
+  be recomputed from scratch.
 
 ## License
 
