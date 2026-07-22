@@ -34,12 +34,12 @@ Indices for the faded points are in the results table below.
 </tr>
 </table>
 
-| Index | Role | Generation | Material | T\* (thrust) | I\* = P\* (power) | STL |
+| Index | Role | Generation | Material | Thrust vs no-nozzle | Power vs no-nozzle | STL |
 |---|---|---|---|---|---|---|
-| **`G2F2`** | Flexible best 1 | 2 | Flexible | **1.105** ± 0.044 | 1.014 ± 0.020 | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
-| **`G3F1`** | Flexible best 2 | 3 | Flexible | **1.017** ± 0.038 | 0.989 ± 0.019 | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
-| **`G3R2`** | Rigid best | 3 | Rigid | **0.977** ± 0.034 | 0.958 ± 0.029 | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
-| **`G1F3`** | Flexible worst | 1 | Flexible | **0.588** ± 0.035 | 1.184 ± 0.035 | [`G1S3.stl`](STL/G1S3.stl) |
+| **`G2F2`** | Flexible best 1 | 2 | Flexible | **+10.5%** ± 4.4% | **+1.4%** ± 2.0% | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
+| **`G3F1`** | Flexible best 2 | 3 | Flexible | **+1.7%** ± 3.8% | **-1.1%** ± 1.9% | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
+| **`G3R2`** | Rigid best | 3 | Rigid | **-2.3%** ± 3.4% | **-4.2%** ± 2.9% | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
+| **`G1F3`** | Flexible worst | 1 | Flexible | **-41.2%** ± 3.5% | **+18.4%** ± 3.5% | [`G1S3.stl`](STL/G1S3.stl) |
 
 Their shape parameters:
 
@@ -62,8 +62,11 @@ Both metrics are ratios against the **no-nozzle** rig running in the same sessio
 | **I\*** | current ÷ no-nozzle current | ↓ lower | same current as bare propeller |
 | **P\*** | power ÷ no-nozzle power | ↓ lower | supply voltage is fixed, so P\* = I\* exactly |
 
-`± values` are the standard deviation over the three thrust pulses of a run, in
-the same normalized units.
+**The tables below report these as percent change from the bare propeller**,
+because it reads more directly: `+10.5%` thrust is T\* = 1.105, `-4.2%` power is
+P\* = 0.958. So **positive thrust is good, negative power is good**. The `±` is
+the standard deviation over the three pulses, also in percent. The CSVs keep the
+raw ratios.
 
 **Why normalize at all?** The rig's absolute output drifts between test sessions
 by up to 20% — two Gen2 Rigid sessions measured the bare propeller at 26.9 N and
@@ -80,69 +83,69 @@ newtons would not** — which is why raw values are not published here. The
 
 ## Results
 
-⭐ marks a representative shape. Sorted by T\* within each group.
+⭐ marks a representative shape. Sorted by thrust within each group.
 
 **Gen1 Flexible**
 
-| Index | T\* | I\* = P\* | Session | STL |
+| Index | Thrust | Power | Session | STL |
 |---|---|---|---|---|
-| `G1FCylinder` | 1.128 ± 0.037 | 1.061 ± 0.068 | G1 | — |
-| `G1F6` | 0.943 ± 0.015 | 1.011 ± 0.087 | G1 | [`G1S6.stl`](STL/G1S6.stl) |
-| `G1F2` | 0.928 ± 0.034 | 1.067 ± 0.052 | G1 | [`G1S2.stl`](STL/G1S2.stl) |
-| `G1F1` | 0.917 ± 0.089 | 1.159 ± 0.153 | G1 | [`G1S1.stl`](STL/G1S1.stl) |
-| `G1F8` | 0.884 ± 0.041 | 0.998 ± 0.041 | G1 | [`G1S8.stl`](STL/G1S8.stl) |
-| `G1F5` | 0.866 ± 0.022 | 0.984 ± 0.030 | G1 | [`G1S5.stl`](STL/G1S5.stl) |
-| `G1F3` ⭐ | 0.588 ± 0.035 | 1.184 ± 0.035 | G1 | [`G1S3.stl`](STL/G1S3.stl) |
-| `G1F4` | 0.540 ± 0.011 | 1.110 ± 0.052 | G1 | [`G1S4.stl`](STL/G1S4.stl) |
+| `G1FCylinder` | +12.8% ± 3.7% | +6.1% ± 6.8% | G1 | — |
+| `G1F6` | -5.7% ± 1.5% | +1.1% ± 8.7% | G1 | [`G1S6.stl`](STL/G1S6.stl) |
+| `G1F2` | -7.2% ± 3.4% | +6.7% ± 5.2% | G1 | [`G1S2.stl`](STL/G1S2.stl) |
+| `G1F1` | -8.3% ± 8.9% | +15.9% ± 15.3% | G1 | [`G1S1.stl`](STL/G1S1.stl) |
+| `G1F8` | -11.6% ± 4.1% | -0.2% ± 4.1% | G1 | [`G1S8.stl`](STL/G1S8.stl) |
+| `G1F5` | -13.4% ± 2.2% | -1.6% ± 3.0% | G1 | [`G1S5.stl`](STL/G1S5.stl) |
+| `G1F3` ⭐ | -41.2% ± 3.5% | +18.4% ± 3.5% | G1 | [`G1S3.stl`](STL/G1S3.stl) |
+| `G1F4` | -46.0% ± 1.1% | +11.0% ± 5.2% | G1 | [`G1S4.stl`](STL/G1S4.stl) |
 
 **Gen1 Rigid**
 
-| Index | T\* | I\* = P\* | Session | STL |
+| Index | Thrust | Power | Session | STL |
 |---|---|---|---|---|
-| `G1RCylinder` | 0.950 ± 0.018 | 1.044 ± 0.047 | G1 | — |
-| `G1R2` | 0.948 ± 0.030 | 1.024 ± 0.040 | G1 | [`G1S2.stl`](STL/G1S2.stl) |
-| `G1R5` | 0.914 ± 0.027 | 1.013 ± 0.051 | G1 | [`G1S5.stl`](STL/G1S5.stl) |
-| `G1R8` | 0.892 ± 0.022 | 1.040 ± 0.047 | G1 | [`G1S8.stl`](STL/G1S8.stl) |
-| `G1R6` | 0.867 ± 0.035 | 0.954 ± 0.046 | G1 | [`G1S6.stl`](STL/G1S6.stl) |
-| `G1R1` | 0.847 ± 0.050 | 1.052 ± 0.072 | G1 | [`G1S1.stl`](STL/G1S1.stl) |
-| `G1R4` | 0.463 ± 0.015 | 1.115 ± 0.017 | G1 | [`G1S4.stl`](STL/G1S4.stl) |
-| `G1R3` | 0.265 ± 0.008 | 1.219 ± 0.057 | G1 | [`G1S3.stl`](STL/G1S3.stl) |
+| `G1RCylinder` | -5.0% ± 1.8% | +4.4% ± 4.7% | G1 | — |
+| `G1R2` | -5.2% ± 3.0% | +2.4% ± 4.0% | G1 | [`G1S2.stl`](STL/G1S2.stl) |
+| `G1R5` | -8.6% ± 2.7% | +1.3% ± 5.1% | G1 | [`G1S5.stl`](STL/G1S5.stl) |
+| `G1R8` | -10.8% ± 2.2% | +4.0% ± 4.7% | G1 | [`G1S8.stl`](STL/G1S8.stl) |
+| `G1R6` | -13.3% ± 3.5% | -4.6% ± 4.6% | G1 | [`G1S6.stl`](STL/G1S6.stl) |
+| `G1R1` | -15.3% ± 5.0% | +5.2% ± 7.2% | G1 | [`G1S1.stl`](STL/G1S1.stl) |
+| `G1R4` | -53.7% ± 1.5% | +11.5% ± 1.7% | G1 | [`G1S4.stl`](STL/G1S4.stl) |
+| `G1R3` | -73.5% ± 0.8% | +21.9% ± 5.7% | G1 | [`G1S3.stl`](STL/G1S3.stl) |
 
 **Gen2 Flexible**
 
-| Index | T\* | I\* = P\* | Session | STL |
+| Index | Thrust | Power | Session | STL |
 |---|---|---|---|---|
-| `G2F2` ⭐ | 1.105 ± 0.044 | 1.014 ± 0.020 | G2F | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
-| `G2F1` | 1.028 ± 0.034 | 1.028 ± 0.011 | G2F | [`G2_F_S1.stl`](STL/G2_F_S1.stl) |
-| `G2F3` | 1.023 ± 0.004 | 1.000 ± 0.052 | G2F | [`G2_F_S3.stl`](STL/G2_F_S3.stl) |
-| `G2F4` | 0.870 ± 0.037 | 1.038 ± 0.033 | G2F | [`G2_F_S4.stl`](STL/G2_F_S4.stl) |
+| `G2F2` ⭐ | +10.5% ± 4.4% | +1.4% ± 2.0% | G2F | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
+| `G2F1` | +2.8% ± 3.4% | +2.8% ± 1.1% | G2F | [`G2_F_S1.stl`](STL/G2_F_S1.stl) |
+| `G2F3` | +2.3% ± 0.4% | -0.0% ± 5.2% | G2F | [`G2_F_S3.stl`](STL/G2_F_S3.stl) |
+| `G2F4` | -13.0% ± 3.7% | +3.8% ± 3.3% | G2F | [`G2_F_S4.stl`](STL/G2_F_S4.stl) |
 
 **Gen2 Rigid**
 
-| Index | T\* | I\* = P\* | Session | STL |
+| Index | Thrust | Power | Session | STL |
 |---|---|---|---|---|
-| `G2R3` | 0.917 ± 0.037 | 1.000 ± 0.036 | G2R_S34 | [`G2_R_S3.stl`](STL/G2_R_S3.stl) |
-| `G2R2` | 0.911 ± 0.022 | 1.015 ± 0.038 | G2R_S12 | [`G2_R_S2.stl`](STL/G2_R_S2.stl) |
-| `G2R1` | 0.819 ± 0.013 | 1.009 ± 0.025 | G2R_S12 | [`G2_R_S1.stl`](STL/G2_R_S1.stl) |
-| `G2R4` | 0.790 ± 0.038 | 1.143 ± 0.021 | G2R_S34 | [`G2_R_S4.stl`](STL/G2_R_S4.stl) |
+| `G2R3` | -8.3% ± 3.7% | -0.0% ± 3.6% | G2R_S34 | [`G2_R_S3.stl`](STL/G2_R_S3.stl) |
+| `G2R2` | -8.9% ± 2.2% | +1.5% ± 3.8% | G2R_S12 | [`G2_R_S2.stl`](STL/G2_R_S2.stl) |
+| `G2R1` | -18.1% ± 1.3% | +0.9% ± 2.5% | G2R_S12 | [`G2_R_S1.stl`](STL/G2_R_S1.stl) |
+| `G2R4` | -21.0% ± 3.8% | +14.3% ± 2.1% | G2R_S34 | [`G2_R_S4.stl`](STL/G2_R_S4.stl) |
 
 **Gen3 Flexible**
 
-| Index | T\* | I\* = P\* | Session | STL |
+| Index | Thrust | Power | Session | STL |
 |---|---|---|---|---|
-| `G3F1` ⭐ | 1.017 ± 0.038 | 0.989 ± 0.019 | G3F | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
-| `G3F2` | 0.933 ± 0.018 | 0.965 ± 0.041 | G3F | [`G3_F_S2.stl`](STL/G3_F_S2.stl) |
-| `G3F4` | 0.931 ± 0.023 | 1.020 ± 0.010 | G3F | [`G3_F_S4.stl`](STL/G3_F_S4.stl) |
-| `G3F3` | 0.837 ± 0.031 | 1.046 ± 0.041 | G3F | [`G3_F_S3.stl`](STL/G3_F_S3.stl) |
+| `G3F1` ⭐ | +1.7% ± 3.8% | -1.1% ± 1.9% | G3F | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
+| `G3F2` | -6.7% ± 1.8% | -3.5% ± 4.1% | G3F | [`G3_F_S2.stl`](STL/G3_F_S2.stl) |
+| `G3F4` | -6.9% ± 2.3% | +2.0% ± 1.0% | G3F | [`G3_F_S4.stl`](STL/G3_F_S4.stl) |
+| `G3F3` | -16.3% ± 3.1% | +4.6% ± 4.1% | G3F | [`G3_F_S3.stl`](STL/G3_F_S3.stl) |
 
 **Gen3 Rigid**
 
-| Index | T\* | I\* = P\* | Session | STL |
+| Index | Thrust | Power | Session | STL |
 |---|---|---|---|---|
-| `G3R2` ⭐ | 0.977 ± 0.034 | 0.958 ± 0.029 | G3R | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
-| `G3R1` | 0.911 ± 0.029 | 0.965 ± 0.022 | G3R | [`G3_R_S1.stl`](STL/G3_R_S1.stl) |
-| `G3R3` | 0.898 ± 0.036 | 0.948 ± 0.022 | G3R | [`G3_R_S3.stl`](STL/G3_R_S3.stl) |
-| `G3R4` | 0.888 ± 0.014 | 0.938 ± 0.015 | G3R | [`G3_R_S4.stl`](STL/G3_R_S4.stl) |
+| `G3R2` ⭐ | -2.3% ± 3.4% | -4.2% ± 2.9% | G3R | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
+| `G3R1` | -8.9% ± 2.9% | -3.5% ± 2.2% | G3R | [`G3_R_S1.stl`](STL/G3_R_S1.stl) |
+| `G3R3` | -10.2% ± 3.6% | -5.2% ± 2.2% | G3R | [`G3_R_S3.stl`](STL/G3_R_S3.stl) |
+| `G3R4` | -11.2% ± 1.4% | -6.2% ± 1.5% | G3R | [`G3_R_S4.stl`](STL/G3_R_S4.stl) |
 
 ---
 
