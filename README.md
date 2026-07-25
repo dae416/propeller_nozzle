@@ -35,12 +35,12 @@ Indices for the faded points are in the results table below.
 </tr>
 </table>
 
-| Index | Role | Generation | Material | Thrust vs no-nozzle | Power vs no-nozzle | STL |
+| Index | Role | Generation | Material | Thrust vs no-nozzle | Power vs no-nozzle | STEP |
 |---|---|---|---|---|---|---|
-| **`G2F2`** | Flexible best 1 | 2 | Flexible | **+10.5%** ± 4.4% | **+1.4%** ± 2.0% | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
-| **`G3F1`** | Flexible best 2 | 3 | Flexible | **+1.7%** ± 3.8% | **-1.1%** ± 1.9% | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
-| **`G3R2`** | Rigid best | 3 | Rigid | **-2.3%** ± 3.4% | **-4.2%** ± 2.9% | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
-| **`G1F3`** | Flexible worst | 1 | Flexible | **-41.2%** ± 3.5% | **+18.4%** ± 3.5% | [`G1S3.stl`](STL/G1S3.stl) |
+| **`G2F2`** | Flexible best 1 | 2 | Flexible | **+10.5%** ± 4.4% | **+1.4%** ± 2.0% | [`G2_F_S2.step`](STEP/G2_F_S2.step) |
+| **`G3F1`** | Flexible best 2 | 3 | Flexible | **+1.7%** ± 3.8% | **-1.1%** ± 1.9% | [`G3_F_S1.step`](STEP/G3_F_S1.step) |
+| **`G3R2`** | Rigid best | 3 | Rigid | **-2.3%** ± 3.4% | **-4.2%** ± 2.9% | [`G3_R_S2.step`](STEP/G3_R_S2.step) |
+| **`G1F3`** | Flexible worst | 1 | Flexible | **-41.2%** ± 3.5% | **+18.4%** ± 3.5% | [`G1S3.step`](STEP/G1S3.step) |
 
 Their shape parameters:
 
@@ -88,65 +88,65 @@ newtons would not** — which is why raw values are not published here. The
 
 **Gen1 Flexible**
 
-| Index | Thrust | Power | Session | STL |
+| Index | Thrust | Power | Session | STEP |
 |---|---|---|---|---|
 | `G1FCylinder` | +12.8% ± 3.7% | +6.1% ± 6.8% | G1 | — |
-| `G1F6` | -5.7% ± 1.5% | +1.1% ± 8.7% | G1 | [`G1S6.stl`](STL/G1S6.stl) |
-| `G1F2` | -7.2% ± 3.4% | +6.7% ± 5.2% | G1 | [`G1S2.stl`](STL/G1S2.stl) |
-| `G1F1` | -8.3% ± 8.9% | +15.9% ± 15.3% | G1 | [`G1S1.stl`](STL/G1S1.stl) |
-| `G1F8` | -11.6% ± 4.1% | -0.2% ± 4.1% | G1 | [`G1S8.stl`](STL/G1S8.stl) |
-| `G1F5` | -13.4% ± 2.2% | -1.6% ± 3.0% | G1 | [`G1S5.stl`](STL/G1S5.stl) |
-| `G1F3` ⭐ | -41.2% ± 3.5% | +18.4% ± 3.5% | G1 | [`G1S3.stl`](STL/G1S3.stl) |
-| `G1F4` | -46.0% ± 1.1% | +11.0% ± 5.2% | G1 | [`G1S4.stl`](STL/G1S4.stl) |
+| `G1F6` | -5.7% ± 1.5% | +1.1% ± 8.7% | G1 | [`G1S6.step`](STEP/G1S6.step) |
+| `G1F2` | -7.2% ± 3.4% | +6.7% ± 5.2% | G1 | [`G1S2.step`](STEP/G1S2.step) |
+| `G1F1` | -8.3% ± 8.9% | +15.9% ± 15.3% | G1 | [`G1S1.step`](STEP/G1S1.step) |
+| `G1F8` | -11.6% ± 4.1% | -0.2% ± 4.1% | G1 | [`G1S8.step`](STEP/G1S8.step) |
+| `G1F5` | -13.4% ± 2.2% | -1.6% ± 3.0% | G1 | [`G1S5.step`](STEP/G1S5.step) |
+| `G1F3` ⭐ | -41.2% ± 3.5% | +18.4% ± 3.5% | G1 | [`G1S3.step`](STEP/G1S3.step) |
+| `G1F4` | -46.0% ± 1.1% | +11.0% ± 5.2% | G1 | [`G1S4.step`](STEP/G1S4.step) |
 
 **Gen1 Rigid**
 
-| Index | Thrust | Power | Session | STL |
+| Index | Thrust | Power | Session | STEP |
 |---|---|---|---|---|
 | `G1RCylinder` | -5.0% ± 1.8% | +4.4% ± 4.7% | G1 | — |
-| `G1R2` | -5.2% ± 3.0% | +2.4% ± 4.0% | G1 | [`G1S2.stl`](STL/G1S2.stl) |
-| `G1R5` | -8.6% ± 2.7% | +1.3% ± 5.1% | G1 | [`G1S5.stl`](STL/G1S5.stl) |
-| `G1R8` | -10.8% ± 2.2% | +4.0% ± 4.7% | G1 | [`G1S8.stl`](STL/G1S8.stl) |
-| `G1R6` | -13.3% ± 3.5% | -4.6% ± 4.6% | G1 | [`G1S6.stl`](STL/G1S6.stl) |
-| `G1R1` | -15.3% ± 5.0% | +5.2% ± 7.2% | G1 | [`G1S1.stl`](STL/G1S1.stl) |
-| `G1R4` | -53.7% ± 1.5% | +11.5% ± 1.7% | G1 | [`G1S4.stl`](STL/G1S4.stl) |
-| `G1R3` | -73.5% ± 0.8% | +21.9% ± 5.7% | G1 | [`G1S3.stl`](STL/G1S3.stl) |
+| `G1R2` | -5.2% ± 3.0% | +2.4% ± 4.0% | G1 | [`G1S2.step`](STEP/G1S2.step) |
+| `G1R5` | -8.6% ± 2.7% | +1.3% ± 5.1% | G1 | [`G1S5.step`](STEP/G1S5.step) |
+| `G1R8` | -10.8% ± 2.2% | +4.0% ± 4.7% | G1 | [`G1S8.step`](STEP/G1S8.step) |
+| `G1R6` | -13.3% ± 3.5% | -4.6% ± 4.6% | G1 | [`G1S6.step`](STEP/G1S6.step) |
+| `G1R1` | -15.3% ± 5.0% | +5.2% ± 7.2% | G1 | [`G1S1.step`](STEP/G1S1.step) |
+| `G1R4` | -53.7% ± 1.5% | +11.5% ± 1.7% | G1 | [`G1S4.step`](STEP/G1S4.step) |
+| `G1R3` | -73.5% ± 0.8% | +21.9% ± 5.7% | G1 | [`G1S3.step`](STEP/G1S3.step) |
 
 **Gen2 Flexible**
 
-| Index | Thrust | Power | Session | STL |
+| Index | Thrust | Power | Session | STEP |
 |---|---|---|---|---|
-| `G2F2` ⭐ | +10.5% ± 4.4% | +1.4% ± 2.0% | G2F | [`G2_F_S2.stl`](STL/G2_F_S2.stl) |
-| `G2F1` | +2.8% ± 3.4% | +2.8% ± 1.1% | G2F | [`G2_F_S1.stl`](STL/G2_F_S1.stl) |
-| `G2F3` | +2.3% ± 0.4% | -0.0% ± 5.2% | G2F | [`G2_F_S3.stl`](STL/G2_F_S3.stl) |
-| `G2F4` | -13.0% ± 3.7% | +3.8% ± 3.3% | G2F | [`G2_F_S4.stl`](STL/G2_F_S4.stl) |
+| `G2F2` ⭐ | +10.5% ± 4.4% | +1.4% ± 2.0% | G2F | [`G2_F_S2.step`](STEP/G2_F_S2.step) |
+| `G2F1` | +2.8% ± 3.4% | +2.8% ± 1.1% | G2F | [`G2_F_S1.step`](STEP/G2_F_S1.step) |
+| `G2F3` | +2.3% ± 0.4% | -0.0% ± 5.2% | G2F | [`G2_F_S3.step`](STEP/G2_F_S3.step) |
+| `G2F4` | -13.0% ± 3.7% | +3.8% ± 3.3% | G2F | [`G2_F_S4.step`](STEP/G2_F_S4.step) |
 
 **Gen2 Rigid**
 
-| Index | Thrust | Power | Session | STL |
+| Index | Thrust | Power | Session | STEP |
 |---|---|---|---|---|
-| `G2R3` | -8.3% ± 3.7% | -0.0% ± 3.6% | G2R_S34 | [`G2_R_S3.stl`](STL/G2_R_S3.stl) |
-| `G2R2` | -8.9% ± 2.2% | +1.5% ± 3.8% | G2R_S12 | [`G2_R_S2.stl`](STL/G2_R_S2.stl) |
-| `G2R1` | -18.1% ± 1.3% | +0.9% ± 2.5% | G2R_S12 | [`G2_R_S1.stl`](STL/G2_R_S1.stl) |
-| `G2R4` | -21.0% ± 3.8% | +14.3% ± 2.1% | G2R_S34 | [`G2_R_S4.stl`](STL/G2_R_S4.stl) |
+| `G2R3` | -8.3% ± 3.7% | -0.0% ± 3.6% | G2R_S34 | [`G2_R_S3.step`](STEP/G2_R_S3.step) |
+| `G2R2` | -8.9% ± 2.2% | +1.5% ± 3.8% | G2R_S12 | [`G2_R_S2.step`](STEP/G2_R_S2.step) |
+| `G2R1` | -18.1% ± 1.3% | +0.9% ± 2.5% | G2R_S12 | [`G2_R_S1.step`](STEP/G2_R_S1.step) |
+| `G2R4` | -21.0% ± 3.8% | +14.3% ± 2.1% | G2R_S34 | [`G2_R_S4.step`](STEP/G2_R_S4.step) |
 
 **Gen3 Flexible**
 
-| Index | Thrust | Power | Session | STL |
+| Index | Thrust | Power | Session | STEP |
 |---|---|---|---|---|
-| `G3F1` ⭐ | +1.7% ± 3.8% | -1.1% ± 1.9% | G3F | [`G3_F_S1.stl`](STL/G3_F_S1.stl) |
-| `G3F2` | -6.7% ± 1.8% | -3.5% ± 4.1% | G3F | [`G3_F_S2.stl`](STL/G3_F_S2.stl) |
-| `G3F4` | -6.9% ± 2.3% | +2.0% ± 1.0% | G3F | [`G3_F_S4.stl`](STL/G3_F_S4.stl) |
-| `G3F3` | -16.3% ± 3.1% | +4.6% ± 4.1% | G3F | [`G3_F_S3.stl`](STL/G3_F_S3.stl) |
+| `G3F1` ⭐ | +1.7% ± 3.8% | -1.1% ± 1.9% | G3F | [`G3_F_S1.step`](STEP/G3_F_S1.step) |
+| `G3F2` | -6.7% ± 1.8% | -3.5% ± 4.1% | G3F | [`G3_F_S2.step`](STEP/G3_F_S2.step) |
+| `G3F4` | -6.9% ± 2.3% | +2.0% ± 1.0% | G3F | [`G3_F_S4.step`](STEP/G3_F_S4.step) |
+| `G3F3` | -16.3% ± 3.1% | +4.6% ± 4.1% | G3F | [`G3_F_S3.step`](STEP/G3_F_S3.step) |
 
 **Gen3 Rigid**
 
-| Index | Thrust | Power | Session | STL |
+| Index | Thrust | Power | Session | STEP |
 |---|---|---|---|---|
-| `G3R2` ⭐ | -2.3% ± 3.4% | -4.2% ± 2.9% | G3R | [`G3_R_S2.stl`](STL/G3_R_S2.stl) |
-| `G3R1` | -8.9% ± 2.9% | -3.5% ± 2.2% | G3R | [`G3_R_S1.stl`](STL/G3_R_S1.stl) |
-| `G3R3` | -10.2% ± 3.6% | -5.2% ± 2.2% | G3R | [`G3_R_S3.stl`](STL/G3_R_S3.stl) |
-| `G3R4` | -11.2% ± 1.4% | -6.2% ± 1.5% | G3R | [`G3_R_S4.stl`](STL/G3_R_S4.stl) |
+| `G3R2` ⭐ | -2.3% ± 3.4% | -4.2% ± 2.9% | G3R | [`G3_R_S2.step`](STEP/G3_R_S2.step) |
+| `G3R1` | -8.9% ± 2.9% | -3.5% ± 2.2% | G3R | [`G3_R_S1.step`](STEP/G3_R_S1.step) |
+| `G3R3` | -10.2% ± 3.6% | -5.2% ± 2.2% | G3R | [`G3_R_S3.step`](STEP/G3_R_S3.step) |
+| `G3R4` | -11.2% ± 1.4% | -6.2% ± 1.5% | G3R | [`G3_R_S4.step`](STEP/G3_R_S4.step) |
 
 ---
 
@@ -157,6 +157,8 @@ newtons would not** — which is why raw values are not published here. The
 | [`nozzle_performance.csv`](nozzle_performance.csv) | 32 rows — the table above, machine-readable |
 | [`geometry_parameters.csv`](geometry_parameters.csv) | 7 shape parameters per nozzle, same 32 rows, same `Index` |
 | [`STL/`](STL) | 23 printable geometries |
+| [`STEP/`](STEP) | The same 23 geometries as AP242 tessellated STEP (see note below) |
+| [`stl_to_step.py`](stl_to_step.py) | Script that regenerates `STEP/` from `STL/` |
 | [`previews/`](previews) | Renders of the representative shapes |
 | [`performance_map.png`](performance_map.png) | The plot at the top of this page |
 | [`make_plot.py`](make_plot.py) | Script that regenerates the plot from the CSV |
@@ -187,6 +189,32 @@ newtons would not** — which is why raw values are not published here. The
 
 All nozzles share a fixed mounting interface: 85 mm inner bore, 110 mm flange,
 2 mm flange thickness, 8 × ⌀4 mm bolts on a 51 mm circle.
+
+### STEP files
+
+The nozzles exist natively as meshes, so the `STEP/` files are **AP242
+tessellated STEP** — the exact STL triangulation in a standard STEP container
+(~1.7 MB each). Modern CAD packages (CATIA, NX, Creo, FreeCAD ≥ 0.21) import
+these directly. If yours cannot, `python stl_to_step.py STL/ out/ --brep`
+regenerates faceted B-rep solids instead (universally importable, but ~55 MB
+per file — which is why they are not committed here). Requires
+`pip install cadquery-ocp`.
+
+### Flexible material — Formlabs Flexible 50A Resin
+
+Flexible nozzles were printed in [Formlabs Flexible 50A Resin](https://formlabs.com/products/flexible-50a-resin/),
+a soft translucent SLA elastomer for parts normally made of soft rubber or
+silicone. Post-cured properties:
+
+| Property | Value |
+|---|---|
+| **Stress at 100% elongation** | **1.7 MPa** ← the key stiffness number for these nozzles |
+| Shore hardness | 55A |
+| Ultimate tensile strength | 3.4 MPa |
+| Stress at 50% elongation | 0.9 MPa |
+| Elongation at break | 160% |
+| Tear strength | 12.3 kN/m |
+| Compression set (70°C, 22 h) | 3.1% |
 
 ---
 
