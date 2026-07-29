@@ -1,11 +1,12 @@
 """Convert the STL meshes to STEP.
 
-Default output is AP242 *tessellated* STEP (~1.7 MB/file): the exact mesh,
-embedded in a standard STEP container. This is what ships in STEP/.
+--brep sews every triangle into a planar-faceted B-rep solid
+(~52 MB/file). Universally importable as a solid. This is what ships in
+STEP/ — CATIA and SpaceClaim reject tessellated AP242 with "No B-Rep data
+in input file", so the heavy form is the one committed.
 
---brep instead sews every triangle into a planar-faceted B-rep solid
-(~55 MB/file, ~300k faces). Universally importable as a solid, but heavy;
-regenerate locally if your CAD package cannot read tessellated AP242.
+Default (no flag) writes AP242 *tessellated* STEP instead (~1.7 MB/file):
+the exact mesh in a standard STEP container, for CAD packages that read it.
 
 Requires: pip install cadquery-ocp
 Usage:    python stl_to_step.py STL/ STEP/ [--brep]

@@ -157,7 +157,7 @@ newtons would not** — which is why raw values are not published here. The
 | [`nozzle_performance.csv`](nozzle_performance.csv) | 32 rows — the table above, machine-readable |
 | [`geometry_parameters.csv`](geometry_parameters.csv) | 7 shape parameters per nozzle, same 32 rows, same `Index` |
 | [`STL/`](STL) | 23 printable geometries |
-| [`STEP/`](STEP) | The same 23 geometries as AP242 tessellated STEP (see note below) |
+| [`STEP/`](STEP) | The same 23 geometries as faceted B-rep STEP solids (see note below) |
 | [`stl_to_step.py`](stl_to_step.py) | Script that regenerates `STEP/` from `STL/` |
 | [`previews/`](previews) | Renders of the representative shapes |
 | [`performance_map.png`](performance_map.png) | The plot at the top of this page |
@@ -192,13 +192,14 @@ All nozzles share a fixed mounting interface: 85 mm inner bore, 110 mm flange,
 
 ### STEP files
 
-The nozzles exist natively as meshes, so the `STEP/` files are **AP242
-tessellated STEP** — the exact STL triangulation in a standard STEP container
-(~1.7 MB each). Modern CAD packages (CATIA, NX, Creo, FreeCAD ≥ 0.21) import
-these directly. If yours cannot, `python stl_to_step.py STL/ out/ --brep`
-regenerates faceted B-rep solids instead (universally importable, but ~55 MB
-per file — which is why they are not committed here). Requires
-`pip install cadquery-ocp`.
+The nozzles exist natively as meshes, so the `STEP/` files are **faceted B-rep
+solids** — every STL triangle sewn into a closed `MANIFOLD_SOLID_BREP`
+(~52 MB each). These import as solids in CATIA, SpaceClaim, NX, Creo, and
+FreeCAD. An earlier revision shipped compact AP242 *tessellated* STEP
+(~1.7 MB each) instead, but CATIA and SpaceClaim rejected those with
+*"No B-Rep data in input file"*, so the heavy-but-universal form is committed.
+`python stl_to_step.py STL/ out/` regenerates the tessellated variant if you
+want the small files. Requires `pip install cadquery-ocp`.
 
 ### Flexible material — Formlabs Flexible 50A Resin
 
